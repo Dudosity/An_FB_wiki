@@ -31,6 +31,7 @@ export class ObjectEditorComponent implements OnInit {
       },
     ]
   };
+  articleText: any;
 
   constructor() { }
 

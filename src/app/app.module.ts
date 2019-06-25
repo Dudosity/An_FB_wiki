@@ -18,6 +18,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {AngularEditorConfig, AngularEditorModule} from '@kolkov/angular-editor';
 import { HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {formatDate} from '@angular/common';
+import {ConnectionService} from './connection.service';
 
 @NgModule({
   declarations: [
@@ -31,15 +34,15 @@ import { HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
     MatTreeModule, MatIconModule,
     MatButtonModule, MatIconModule,
     MatDividerModule, MatDividerModule,
     MDBBootstrapModule, AngularEditorModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, FormsModule
   ],
-  providers: [],
+  providers: [ConnectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
