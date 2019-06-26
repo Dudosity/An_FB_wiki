@@ -32,19 +32,19 @@ export class ObjectListComponent implements OnInit, DoCheck {
   constructor(private firebase: ConnectionService) {}
   ngOnInit(): void {
     this.space = {
-      name: '',
-      description: ''
+      Name: '',
+      Description: ''
     };
     this.theme = {
-      name: '',
-      description: '',
-      space: ''
+      Name: 'Требования к ведению отчетности',
+      Description: '',
+      Space: 'XHqYBG9g2WvPL64sifgf'
     };
     this.article = {
-      name: '',
-      description: '',
-      text: '',
-      theme: ''
+      Name: '',
+      Description: '',
+      Text: '',
+      Theme: ''
     };
     this.firebase.getSpaces();
     this.clickId = 0;
@@ -59,7 +59,13 @@ export class ObjectListComponent implements OnInit, DoCheck {
   }
 
   getThemes(id) {
-    this.clickId = id;
-    this.firebase.getThemes();
+    if (this.clickId != id) {
+      this.clickId = id;
+      this.firebase.getThemes();
+    }
+  }
+
+  createTheme() {
+    this.firebase.createTheme(this.theme);
   }
 }

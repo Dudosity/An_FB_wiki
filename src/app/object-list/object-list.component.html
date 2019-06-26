@@ -1,14 +1,23 @@
+<button (click)="createTheme()"></button>
 <h3>Дерево пространств</h3>
 <div *ngFor="let i of spaces">
   <div (click)="getThemes(i.id)" class="list-group" role="tablist">
     <div class="list-group-item">
-    {{i.name}}
+      <i class="material-icons align-middle">
+        grade
+      </i>
+      {{i.name}}
     </div>
     <div *ngIf="clickId != 0" >
     <div *ngFor="let j of themes" >
       <div *ngIf="clickId != 0 && j.space === i.id && i.id == clickId" class="list-group" role="tablist">
         <div class="list-group-item">
-        {{j.name}}
+          <div class="ml-3">
+            <i class="material-icons align-middle">
+              bookmarks
+            </i>
+            {{j.name}}
+          </div>
         </div>
       </div>
     </div>

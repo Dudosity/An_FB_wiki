@@ -22,10 +22,14 @@ import {FormsModule} from '@angular/forms';
 import {formatDate} from '@angular/common';
 import {ConnectionService} from './connection.service';
 import { MainComponent } from './main/main.component';
+import { AdminComponent } from './admin/admin.component';
+import {NbThemeModule, NbLayoutModule, NbSearchModule, NbButtonModule, NbSelectModule, NbInputModule} from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '',      component: MainComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: '', component: MainComponent },
 ];
 
 @NgModule({
@@ -37,7 +41,8 @@ const appRoutes: Routes = [
     ObjectListComponent,
     ObjectEditorComponent,
     RecomendationListComponent,
-    MainComponent
+    MainComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(
@@ -48,9 +53,13 @@ const appRoutes: Routes = [
     MatButtonModule, MatIconModule,
     MatDividerModule, MatDividerModule,
     MDBBootstrapModule, AngularEditorModule,
-    HttpClientModule,
+    HttpClientModule, NbSearchModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, FormsModule
+    AngularFirestoreModule, FormsModule,
+    BrowserAnimationsModule, NbThemeModule.forRoot({ name: 'dark' }),
+    NbLayoutModule, NbEvaIconsModule,
+    NbButtonModule, NbSelectModule,
+    NbInputModule
   ],
   providers: [ConnectionService],
   bootstrap: [AppComponent]

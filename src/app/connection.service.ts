@@ -10,6 +10,7 @@ export class ConnectionService {
   users;
   spaces;
   themes;
+  articles;
   private i: number;
 
   constructor(private db: AngularFirestore) { }
