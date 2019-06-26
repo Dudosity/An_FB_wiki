@@ -7,7 +7,6 @@ import {User} from './User';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'VKRwiki';
   succession;
   ngOnInit(): void {
     this.succession = User.SuccessLogin;

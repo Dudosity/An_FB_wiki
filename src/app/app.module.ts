@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -21,6 +21,12 @@ import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {formatDate} from '@angular/common';
 import {ConnectionService} from './connection.service';
+import { MainComponent } from './main/main.component';
+
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: '',      component: MainComponent },
+];
 
 @NgModule({
   declarations: [
@@ -30,10 +36,14 @@ import {ConnectionService} from './connection.service';
     FooterComponent,
     ObjectListComponent,
     ObjectEditorComponent,
-    RecomendationListComponent
+    RecomendationListComponent,
+    MainComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
     MatTreeModule, MatIconModule,
     MatButtonModule, MatIconModule,
     MatDividerModule, MatDividerModule,
