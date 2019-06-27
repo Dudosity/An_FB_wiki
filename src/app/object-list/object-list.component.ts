@@ -36,9 +36,9 @@ export class ObjectListComponent implements OnInit, DoCheck {
       Description: ''
     };
     this.theme = {
-      Name: 'Требования к ведению отчетности',
+      Name: '',
       Description: '',
-      Space: 'XHqYBG9g2WvPL64sifgf'
+      Space: ''
     };
     this.article = {
       Name: '',

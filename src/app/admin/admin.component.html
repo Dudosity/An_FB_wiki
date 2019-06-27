@@ -1,0 +1,46 @@
+<nb-layout>
+
+  <nb-layout-header fixed>
+    <nb-search type="rotate-layout"></nb-search>
+    <!-- Insert header here -->
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <div class="row">
+    <div class="col-4">
+      <h3>Пространства</h3>
+      <input [(ngModel)]="space.Name" type="text" nbInput fullWidth placeholder="Название">
+      <input [(ngModel)]="space.Description" type="text" nbInput fullWidth placeholder="Описание">
+      <button nbButton>Добавить</button>
+    </div>
+    <div class="col-4">
+      <h3>Темы</h3>
+      <input [(ngModel)]="theme.Name"  type="text" nbInput fullWidth placeholder="Название">
+      <input [(ngModel)]="theme.Description" type="text" nbInput fullWidth placeholder="Описание">
+      <nb-select placeholder="Пространства" [(selected)]="theme.Space">
+        <nb-option value="">Option empty</nb-option>
+        <nb-option *ngFor="let items of spaces" value="{{items.id}}}">{{items.name}}</nb-option>
+      </nb-select> <br />
+      <button nbButton>Добавить</button>
+    </div>
+    <div class="col-4">
+      <h3>Статьи</h3>
+      <input type="text" nbInput fullWidth placeholder="Название">
+      <input type="text" nbInput fullWidth placeholder="Описание">
+      <textarea nbInput fullWidth placeholder="Textarea"></textarea>
+      <nb-select placeholder="Темы" [(selected)]="selectedItem">
+        <nb-option value="">Option empty</nb-option>
+        <nb-option *ngFor="let th of themes" value="{{th.id}}}">{{th.name}}</nb-option>
+      </nb-select> <br />
+      <button nbButton>Добавить</button>
+    </div>
+
+    </div>
+
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <!-- Insert footer here -->
+  </nb-layout-footer>
+
+</nb-layout>
