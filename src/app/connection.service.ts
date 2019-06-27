@@ -12,6 +12,7 @@ export class ConnectionService {
   themes;
   articles;
   private i: number;
+  article;
 
   constructor(private db: AngularFirestore) { }
 
@@ -31,7 +32,7 @@ export class ConnectionService {
         };
 
       });
-      User.Spaces = this.spaces;
+      User.spaces = this.spaces;
       }
     );
   }
@@ -44,8 +45,8 @@ export class ConnectionService {
           return {
             id: e.payload.doc.id,
             isEdit: false,
-            name: e.payload.doc.data()['Name'],
-            space: e.payload.doc.data()['Space']
+            name: e.payload.doc.data()['name'],
+            theme: e.payload.doc.data()['space']
           };
         });
         User.themes = this.themes;
@@ -77,5 +78,23 @@ export class ConnectionService {
     });
   }
 
+  createArticle(article) {
+    return this.db.collection('article').add(article);
+  }
+  getArticles() {
+    this.db.collection('article').snapshotChanges().subscribe(data => {
+        this.article = data.map( e => {
+          return {
+            id: e.payload.doc.id,
+            isEdit: false,
+            name: e.payload.doc.data()['name'],
+            theme: e.payload.doc.data()['theme']
+          };
+        });
+        User.articles = this.article;
+        console.log(User.articles)
+      }
+    );
+  }
 }
 

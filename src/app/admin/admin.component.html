@@ -9,30 +9,30 @@
     <div class="row">
     <div class="col-4">
       <h3>Пространства</h3>
-      <input [(ngModel)]="space.Name" type="text" nbInput fullWidth placeholder="Название">
-      <input [(ngModel)]="space.Description" type="text" nbInput fullWidth placeholder="Описание">
-      <button nbButton>Добавить</button>
+      <input [(ngModel)]="space.name" type="text" nbInput fullWidth placeholder="Название">
+      <input [(ngModel)]="space.description" type="text" nbInput fullWidth placeholder="Описание">
+      <button nbButton (click)="addSpace()">Добавить</button>
     </div>
     <div class="col-4">
       <h3>Темы</h3>
-      <input [(ngModel)]="theme.Name"  type="text" nbInput fullWidth placeholder="Название">
-      <input [(ngModel)]="theme.Description" type="text" nbInput fullWidth placeholder="Описание">
-      <nb-select placeholder="Пространства" [(selected)]="theme.Space">
+      <input [(ngModel)]="theme.name"  type="text" nbInput fullWidth placeholder="Название">
+      <input [(ngModel)]="theme.description" type="text" nbInput fullWidth placeholder="Описание">
+      <nb-select placeholder="Пространства" [(selected)]="theme.space">
         <nb-option value="">Option empty</nb-option>
-        <nb-option *ngFor="let items of spaces" value="{{items.id}}}">{{items.name}}</nb-option>
+        <nb-option *ngFor="let items of spaces" value="{{items.id}}">{{items.name}}</nb-option>
       </nb-select> <br />
-      <button nbButton>Добавить</button>
+      <button nbButton (click)="addTheme()">Добавить</button>
     </div>
     <div class="col-4">
       <h3>Статьи</h3>
-      <input type="text" nbInput fullWidth placeholder="Название">
-      <input type="text" nbInput fullWidth placeholder="Описание">
-      <textarea nbInput fullWidth placeholder="Textarea"></textarea>
-      <nb-select placeholder="Темы" [(selected)]="selectedItem">
+      <input [(ngModel)]="article.name" type="text" nbInput fullWidth placeholder="Название">
+      <input [(ngModel)]="article.description" type="text" nbInput fullWidth placeholder="Описание">
+      <textarea [(ngModel)]="article.text" nbInput fullWidth placeholder="Textarea"></textarea>
+      <nb-select placeholder="Темы" [(selected)]="article.theme">
         <nb-option value="">Option empty</nb-option>
-        <nb-option *ngFor="let th of themes" value="{{th.id}}}">{{th.name}}</nb-option>
+        <nb-option *ngFor="let th of themes" value="{{th.id}}">{{th.name}}</nb-option>
       </nb-select> <br />
-      <button nbButton>Добавить</button>
+      <button nbButton (click)="addArticle()">Добавить</button>
     </div>
 
     </div>

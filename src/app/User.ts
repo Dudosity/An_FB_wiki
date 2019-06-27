@@ -3,6 +3,7 @@ export class User {
   static login: string;
   static password: string;
   static SuccessLogin = false;
-  static Spaces: any;
+  static spaces: any;
   static themes: any;
+  static articles: any;
 }

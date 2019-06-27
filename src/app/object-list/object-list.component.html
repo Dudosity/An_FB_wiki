@@ -9,13 +9,25 @@
     </div>
     <div *ngIf="clickId != 0" >
     <div *ngFor="let j of themes" >
-      <div *ngIf="clickId != 0 && j.space === i.id && i.id == clickId" class="list-group" role="tablist">
-        <div class="list-group-item">
+      <div *ngIf="clickId != 0 && j.theme === i.id && i.id == clickId" class="list-group" role="tablist">
+        <div class="list-group-item" (click)="getArticles()">
           <div class="ml-3">
             <i class="material-icons align-middle">
               bookmarks
             </i>
             {{j.name}}
+          </div>
+          <div *ngFor="let f of articles">
+            <div *ngIf="f.theme == j.id">
+              <div class="list-group-item mt-1">
+                <div class="ml-3">
+                <i class="material-icons align-middle">
+                  bookmarks
+                </i>
+              {{f.name}}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
