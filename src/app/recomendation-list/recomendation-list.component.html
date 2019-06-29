@@ -1,9 +1,22 @@
+<div class="container-fluid">
 <app-nav-bar></app-nav-bar>
 <div class="row">
   <div class="col-4">
     <app-object-list></app-object-list>
   </div>
-  <div class="col-8">
+  <div class="col-8 list-group">
     <h3>Рекомендованные статьи</h3>
+    <div *ngFor="let art of articles; let i = index" class="list-group-item">
+
+      {{i + 1}}
+
+      <i class="material-icons align-middle">
+        bookmark_border
+      </i>
+      <!--  TODO  выводить сортированиые статьи для пользователя по скору  -->
+      {{art.name}}
+
+    </div>
   </div>
+</div>
 </div>

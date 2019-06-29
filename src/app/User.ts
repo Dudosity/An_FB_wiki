@@ -6,4 +6,5 @@ export class User {
   static spaces: any;
   static themes: any;
   static articles: any;
+  static id:any;
 }

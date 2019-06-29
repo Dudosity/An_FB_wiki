@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent },
   { path: '', component: MainComponent },
-  { path: 'recomendation', component: RecomendationListComponent }
+  { path: 'rec', component: RecomendationListComponent }
 ];
 
 @NgModule({

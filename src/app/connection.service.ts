@@ -11,6 +11,7 @@ export class ConnectionService {
   spaces;
   themes;
   articles;
+  recommen
   private i: number;
   article;
 
@@ -65,6 +66,7 @@ export class ConnectionService {
           password: e.payload.doc.data()['password']
         };
       });
+      User.id = this.users.id;
       this.i = 0;
       while ( this.i != this.users.length) {
       if (this.users[this.i].username == log && this.users[this.i].password == pas) {
@@ -77,7 +79,6 @@ export class ConnectionService {
 
     });
   }
-
   createArticle(article) {
     return this.db.collection('article').add(article);
   }
@@ -95,6 +96,9 @@ export class ConnectionService {
         console.log(User.articles)
       }
     );
+  }
+  getRecommendations() {
+
   }
 }
 
