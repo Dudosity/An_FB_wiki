@@ -71,4 +71,8 @@ export class ObjectListComponent implements OnInit, DoCheck {
   createTheme() {
     this.firebase.createTheme(this.theme);
   }
+
+  choseArt(chooseText) {
+    User.Choosetext = chooseText;
+  }
 }

@@ -16,6 +16,10 @@ export class RecomendationListComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    this.bd.getArticles();}
+    this.bd.getArticles();
+  }
 
+  getRecomend() {
+    this.bd.getRecommendations();
+  }
 }

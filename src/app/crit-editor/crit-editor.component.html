@@ -1,0 +1,58 @@
+<div class="container-fluid">
+<div class="row">
+  <div class="col-4">
+    <h3>Ключевые слова</h3>
+    <textarea rows="4" cols="50">
+      Программа,
+      Алгоритм,
+      Схама,
+      Модель,
+      Таблица,
+      База Данных,
+      Api,
+      JavaScript,
+      MS SQL Server,
+      HTML,
+      MS SQL,
+      jQuery,
+      Transact-SQL,
+      SVN,
+      CSS,
+      MySQL,
+      C#,
+      PHP,
+      ASP.NET,
+      PHP5,
+      SEO,
+      .NET Framework,
+      Linux,
+      IIS,
+      HTML5,
+      ООП,
+      CSS3,
+      XML,
+      SQL,
+      MVC,
+</textarea>
+  </div>
+  <div class="col-4">
+    <h3>Калибровка критериев</h3>
+    <div *ngFor="let crit of criteries; let i = index" [attr.data-index]="i" >
+      <div *ngFor="let f of criteries; let j = index">
+        <form >
+          <div class="form-group" *ngIf="crit.name != criteries[criteries.length - j-1].name">
+            <label class="float-left">{{crit.name}}</label>
+            <label class="float-right">{{criteries[criteries.length - j-1].name}}</label>
+            <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
+          </div>
+        </form>
+      </div>
+
+  </div>
+    <button type="button" class="btn btn-primary">Откалибровать</button>
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>
+</div>

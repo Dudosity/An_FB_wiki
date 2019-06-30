@@ -7,4 +7,7 @@ export class User {
   static themes: any;
   static articles: any;
   static id:any;
+  static criteries: any;
+  static artText: any;
+  static Choosetext: any;
 }

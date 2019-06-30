@@ -25,12 +25,15 @@ import { MainComponent } from './main/main.component';
 import { AdminComponent } from './admin/admin.component';
 import {NbThemeModule, NbLayoutModule, NbSearchModule, NbButtonModule, NbSelectModule, NbInputModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { CritEditorComponent } from './crit-editor/crit-editor.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent },
   { path: '', component: MainComponent },
-  { path: 'rec', component: RecomendationListComponent }
+  { path: 'rec', component: RecomendationListComponent },
+  { path: 'profile', component: ProfileComponent }
 ];
 
 @NgModule({
@@ -43,7 +46,9 @@ const appRoutes: Routes = [
     ObjectEditorComponent,
     RecomendationListComponent,
     MainComponent,
-    AdminComponent
+    AdminComponent,
+    CritEditorComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(

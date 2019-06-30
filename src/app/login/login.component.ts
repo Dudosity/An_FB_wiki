@@ -23,4 +23,7 @@ export class LoginComponent implements OnInit {
   LoginUser() {
     console.log(this.firebase.loginUser(this.login.username, this.login.password));
   }
+  Createuser() {
+    this.firebase.createUser(this.login);
+  }
 }

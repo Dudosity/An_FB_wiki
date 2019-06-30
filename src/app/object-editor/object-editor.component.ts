@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, DoCheck, OnChanges, OnInit} from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-
+import {User} from '../User';
 
 @Component({
   selector: 'app-object-editor',
   templateUrl: './object-editor.component.html',
   styleUrls: ['./object-editor.component.css']
 })
-export class ObjectEditorComponent implements OnInit {
+export class ObjectEditorComponent implements OnInit, DoCheck {
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -34,6 +34,9 @@ export class ObjectEditorComponent implements OnInit {
   articleText: any;
 
   constructor() { }
+  ngDoCheck(): void {
+  this.articleText = User.Choosetext;
+  }
 
   ngOnInit() {
   }

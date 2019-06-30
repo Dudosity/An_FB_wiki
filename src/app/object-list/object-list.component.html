@@ -19,7 +19,7 @@
           </div>
           <div *ngFor="let f of articles">
             <div *ngIf="f.theme == j.id">
-              <div class="list-group-item mt-1">
+              <div class="list-group-item mt-1" (click)="choseArt(f.text)">
                 <div class="ml-3">
                 <i class="material-icons align-middle">
                   bookmark_border

@@ -10,10 +10,10 @@ export class ConnectionService {
   users;
   spaces;
   themes;
-  articles;
-  recommen
+
   private i: number;
   article;
+  criteries;
 
   constructor(private db: AngularFirestore) { }
 
@@ -79,7 +79,8 @@ export class ConnectionService {
 
     });
   }
-  createArticle(article) {
+  createArticle(article, recomendation) {
+    this.db.collection('recomendation').add(recomendation);
     return this.db.collection('article').add(article);
   }
   getArticles() {
@@ -89,10 +90,12 @@ export class ConnectionService {
             id: e.payload.doc.id,
             isEdit: false,
             name: e.payload.doc.data()['name'],
-            theme: e.payload.doc.data()['theme']
+            theme: e.payload.doc.data()['theme'],
+            text: e.payload.doc.data()['text']
           };
         });
         User.articles = this.article;
+        User.artText = this.article.text;
         console.log(User.articles)
       }
     );
@@ -100,5 +103,24 @@ export class ConnectionService {
   getRecommendations() {
 
   }
+  getCriteries() {
+    this.db.collection('crit_list').snapshotChanges().subscribe(data => {
+        this.criteries = data.map( e => {
+          return {
+            id: e.payload.doc.id,
+            isEdit: false,
+            name: e.payload.doc.data()['name'],
+            theme: e.payload.doc.data()['description']
+          };
+        });
+        User.criteries = this.criteries;
+      }
+    );
+
+  }
+  createCrit(crit) {
+    return this.db.collection('crit_list').add(crit);
+  }
+
 }
 

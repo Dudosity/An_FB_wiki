@@ -14,6 +14,7 @@ export class AdminComponent implements OnInit, DoCheck {
   space;
   theme;
   article;
+  recomendation;
   constructor(private firebase: ConnectionService) { }
   ngDoCheck(): void {
   this.spaces = User.spaces;
@@ -36,6 +37,11 @@ export class AdminComponent implements OnInit, DoCheck {
       text: '',
       theme: ''
     };
+    this.recomendation = {
+      article: '',
+      score: '',
+      user: ''
+    };
   this.firebase.getSpaces();
   this.firebase.getThemes();
   }
@@ -53,6 +59,8 @@ export class AdminComponent implements OnInit, DoCheck {
   }
 
   addArticle() {
-    this.firebase.createArticle(this.article);
+    this.recomendation.article = this.article.name;
+    this.recomendation.score = Math.floor((Math.random() * 10) + 1);
+    this.firebase.createArticle(this.article, this.recomendation);
   }
 }
